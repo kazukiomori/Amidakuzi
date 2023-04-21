@@ -20,13 +20,31 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
-        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-                tapGR.cancelsTouchesInView = false
-                self.tableView.addGestureRecognizer(tapGR)
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                                   action:#selector(dismissKeyboard))
+        tapGR.cancelsTouchesInView = false
+        self.tableView.addGestureRecognizer(tapGR)
+        navigationItemSet()
         // Do any additional setup after loading the view.
     }
 
     // MARK: Function
+    
+    func navigationItemSet() {
+        let addBarButtonItem = UIBarButtonItem(title: "作成", style: .done, target: self, action: #selector(showNextView))
+        addBarButtonItem.tintColor = .black
+        self.navigationItem.rightBarButtonItems = [addBarButtonItem]
+    }
+    
+    @objc func showNextView() {
+        if items.count > 1 {
+            //TODO エラーメッセージを出す
+            return
+        }
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AmidakuziViewController") as? AmidakuziViewController else { return }
+        self.navigationController?.show(nextViewController, sender: nil)
+    }
     @IBAction func tappedAddButton(_ sender: Any) {
         if textField.text == "" {
             return
