@@ -43,6 +43,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         }
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AmidakuziViewController") as? AmidakuziViewController else { return }
+        nextViewController.items = self.items
         self.navigationController?.show(nextViewController, sender: nil)
     }
     @IBAction func tappedAddButton(_ sender: Any) {
