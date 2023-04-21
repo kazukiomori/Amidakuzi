@@ -20,13 +20,28 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
+        let tapGR: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+                tapGR.cancelsTouchesInView = false
+                self.tableView.addGestureRecognizer(tapGR)
         // Do any additional setup after loading the view.
     }
 
     // MARK: Function
     @IBAction func tappedAddButton(_ sender: Any) {
-        items.append("\(String(describing: textField.text))")
+        if textField.text == "" {
+            return
+        }
+        items.append(String(textField.text!))
+        textField.text = ""
         tableView.reloadData()
+    }
+    
+    @objc func dismissKeyboard() {
+        textField.endEditing(true)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     // MARK: tableView関連
@@ -39,6 +54,10 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
         cell.textLabel?.text = items[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        textField.endEditing(true)
     }
     
 }

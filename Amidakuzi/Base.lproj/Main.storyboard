@@ -12,7 +12,7 @@
         <!--Top View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TopViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TopViewController" customModule="Amidakuzi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,9 +35,6 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E2-ZQ-Ftl">
                                 <rect key="frame" x="324.33333333333331" y="164" width="58.666666666666664" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="taH-P4-D2t"/>
-                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="追加"/>
@@ -49,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="239" width="393" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VKe-oh-tqe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VKe-oh-tqe">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKe-oh-tqe" id="uA1-tm-rqw" customClass="cell">
@@ -58,6 +55,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="H5z-v4-pvR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="2sb-1G-cdF"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tq-Ej-6Ob">
                                 <rect key="frame" x="0.0" y="758" width="393" height="60"/>
@@ -70,6 +71,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Sko-Zf-YQ1" firstAttribute="top" secondItem="qis-5Z-2pN" secondAttribute="bottom" constant="20" id="5Wi-u2-X0y"/>
                             <constraint firstItem="qis-5Z-2pN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="5" id="796-Bk-FIh"/>
@@ -91,7 +93,7 @@
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="HjY-Li-yq5"/>
                     <connections>
-                        <outlet property="tableView" destination="87O-D3-zAd" id="g4H-xi-Mq2"/>
+                        <outlet property="tableView" destination="87O-D3-zAd" id="aaR-NF-0V0"/>
                         <outlet property="textField" destination="Sko-Zf-YQ1" id="saF-Qc-sqP"/>
                         <outlet property="titleLabel" destination="qis-5Z-2pN" id="4ji-Ua-vjz"/>
                     </connections>
