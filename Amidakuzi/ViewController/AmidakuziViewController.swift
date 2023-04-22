@@ -9,9 +9,12 @@ import UIKit
 
 class AmidakuziViewController: UIViewController {
     
-    var items: [String] = []
+    var startItems: [String] = ["ごはん", "うどん"]
+    var goalItems: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .black
     }
+    
 }
+

@@ -37,13 +37,13 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     @objc func showNextView() {
-        if items.count > 1 {
+        if items.count < 1 {
             //TODO エラーメッセージを出す
             return
         }
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AmidakuziViewController") as? AmidakuziViewController else { return }
-        nextViewController.items = self.items
+        nextViewController.goalItems = self.items
         self.navigationController?.show(nextViewController, sender: nil)
     }
     @IBAction func tappedAddButton(_ sender: Any) {
