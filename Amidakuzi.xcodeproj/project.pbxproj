@@ -14,6 +14,7 @@
 		3B83242229F186CA007F7DC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B83242129F186CA007F7DC2 /* Assets.xcassets */; };
 		3B83242529F186CA007F7DC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B83242329F186CA007F7DC2 /* LaunchScreen.storyboard */; };
 		3BACA2A429F2E1CD00B66636 /* AmidakuziViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACA2A329F2E1CD00B66636 /* AmidakuziViewController.swift */; };
+		3BF8437229F5866A00E31441 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF8437129F5866A00E31441 /* MemberViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3B83242429F186CA007F7DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B83242629F186CA007F7DC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BACA2A329F2E1CD00B66636 /* AmidakuziViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmidakuziViewController.swift; sourceTree = "<group>"; };
+		3BF8437129F5866A00E31441 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			children = (
 				3B83241C29F186C6007F7DC2 /* TopViewController.swift */,
 				3BACA2A329F2E1CD00B66636 /* AmidakuziViewController.swift */,
+				3BF8437129F5866A00E31441 /* MemberViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -152,6 +155,7 @@
 				3B83241D29F186C6007F7DC2 /* TopViewController.swift in Sources */,
 				3B83241929F186C6007F7DC2 /* AppDelegate.swift in Sources */,
 				3BACA2A429F2E1CD00B66636 /* AmidakuziViewController.swift in Sources */,
+				3BF8437229F5866A00E31441 /* MemberViewController.swift in Sources */,
 				3B83241B29F186C6007F7DC2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

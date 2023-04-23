@@ -102,6 +102,21 @@
             </objects>
             <point key="canvasLocation" x="-2.2900763358778624" y="3.5211267605633805"/>
         </scene>
+        <!--Member View Controller-->
+        <scene sceneID="e5b-V2-TpD">
+            <objects>
+                <viewController storyboardIdentifier="MemberViewController" id="PBr-EK-nSe" customClass="MemberViewController" customModule="Amidakuzi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RAv-22-NXL">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="cjZ-Ae-0IX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJt-E0-1L2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="4"/>
+        </scene>
         <!--Amidakuzi View Controller-->
         <scene sceneID="ygB-Lc-g6u">
             <objects>
@@ -115,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fc-3n-dDM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="12"/>
+            <point key="canvasLocation" x="2218" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MCc-yE-lIg">

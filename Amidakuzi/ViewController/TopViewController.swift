@@ -42,7 +42,7 @@ class TopViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             return
         }
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        guard let nextViewController = storyBoard.instantiateViewController(withIdentifier: "AmidakuziViewController") as? AmidakuziViewController else { return }
+        guard let nextViewController = storyBoard.instantiateViewController(withIdentifier: "MemberViewController") as? MemberViewController else { return }
         nextViewController.goalItems = self.items
         self.navigationController?.show(nextViewController, sender: nil)
     }

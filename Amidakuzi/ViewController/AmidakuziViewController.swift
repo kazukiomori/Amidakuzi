@@ -11,11 +11,11 @@ class AmidakuziViewController: UIViewController {
     
     var startItems: [String] = ["ごはん", "うどん"]
     var goalItems: [String] = []
-    
+    var linePoints: [CGPoint] = []
     // 縦線の開始位置
-    let startX: CGFloat = 50
-    let startY: CGFloat = 100
-    let endY: CGFloat = 500
+    var startX: Int = 50
+    var startY: Int = 100
+    var endY: Int = 600
     
     // 線の幅と色
     let lineWidth: CGFloat = 5
@@ -26,20 +26,44 @@ class AmidakuziViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let lineView = LineView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height),
-                                startPoint: CGPoint(x: 50, y: 100), endPoint: CGPoint(x: 50, y: 400))
-        view.addSubview(lineView)
+        for i in 1..<goalItems.count + 1 {
+            let x = CGFloat(startX)
+            let y = CGFloat(0)
+            let point = CGPoint(x: x, y: y)
+            linePoints.append(point)
+            startX += 100
+        }
+        let lineView = LineView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height),
+                                linePoints: linePoints)
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: view.bounds.height))
+        scrollView.contentSize = lineView.frame.size // LineViewのframeサイズをcontentSizeに設定する
+        scrollView.addSubview(lineView)
+        
+        // UIScrollViewの横方向のスクロールを有効にする
+        scrollView.isScrollEnabled = true
+        scrollView.showsHorizontalScrollIndicator = true
+        scrollView.alwaysBounceHorizontal = true
+        scrollView.alwaysBounceVertical = false
+        view.addSubview(scrollView)
+        // 直線の数だけUITextFieldを生成してLineViewの上に配置する
+        for i in 0..<linePoints.count {
+            var startTFX = 30
+            let textField = UITextField(frame: CGRect(x: startTFX, y: 100, width: 60, height: 20))
+            textField.placeholder = "Enter text"
+            textField.borderStyle = .roundedRect
+            view.addSubview(textField)
+            startTFX += 100
+        }
+        
     }
     
 }
 
 class LineView: UIView {
-    let startPoint: CGPoint
-    let endPoint: CGPoint
+    let linePoints: [CGPoint]
     
-    init(frame: CGRect, startPoint: CGPoint, endPoint: CGPoint) {
-        self.startPoint = startPoint
-        self.endPoint = endPoint
+    init(frame: CGRect, linePoints: [CGPoint]) {
+        self.linePoints = linePoints
         super.init(frame: frame)
     }
     
@@ -57,9 +81,11 @@ class LineView: UIView {
         context.setStrokeColor(UIColor.black.cgColor)
         
         // 線を描画する
-        context.move(to: startPoint)
-        context.addLine(to: endPoint)
-        context.strokePath()
+        for point in linePoints {
+            context.move(to: CGPoint(x: point.x, y: 100))
+            context.addLine(to: CGPoint(x: point.x, y: 400))
+            context.strokePath()
+        }
     }
 }
 
