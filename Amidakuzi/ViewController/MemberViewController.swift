@@ -7,15 +7,21 @@
 
 import UIKit
 
-class MemberViewController: UIViewController {
+class MemberViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
+    // MARK: Property
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var bannerView: UIView!
     var startItems: [String] = []
     var goalItems: [String] = []
+    
+    // MARK: LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItemSet()
     }
     
+    // MARK: Method
     func navigationItemSet() {
         let addBarButtonItem = UIBarButtonItem(title: "作成", style: .done, target: self, action: #selector(showNextView))
         addBarButtonItem.tintColor = .black
@@ -30,4 +36,14 @@ class MemberViewController: UIViewController {
         nextViewController.goalItems = self.goalItems
         self.navigationController?.show(nextViewController, sender: nil)
     }
+    
+    // MARK: TableView
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return goalItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }

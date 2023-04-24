@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="239" width="393" height="519"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VKe-oh-tqe">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="VKe-oh-tqe" customClass="MemberTableViewCell" customModule="Amidakuzi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKe-oh-tqe" id="uA1-tm-rqw" customClass="cell">
@@ -109,9 +109,49 @@
                     <view key="view" contentMode="scaleToFill" id="RAv-22-NXL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HGi-wT-0nR">
+                                <rect key="frame" x="0.0" y="59" width="393" height="699"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aKG-F6-myf">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKG-F6-myf" id="Pi8-Kn-kMw">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="PBr-EK-nSe" id="fDJ-xZ-zVJ"/>
+                                    <outlet property="delegate" destination="PBr-EK-nSe" id="OaH-pC-f8H"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yeh-A6-GxS">
+                                <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="EYN-Nd-wH4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="cjZ-Ae-0IX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yeh-A6-GxS" firstAttribute="leading" secondItem="cjZ-Ae-0IX" secondAttribute="leading" id="8ry-Ce-5dx"/>
+                            <constraint firstItem="cjZ-Ae-0IX" firstAttribute="bottom" secondItem="HGi-wT-0nR" secondAttribute="bottom" constant="60" id="DR3-h1-7WK"/>
+                            <constraint firstItem="HGi-wT-0nR" firstAttribute="top" secondItem="cjZ-Ae-0IX" secondAttribute="top" id="Jrg-PR-3B4"/>
+                            <constraint firstItem="cjZ-Ae-0IX" firstAttribute="trailing" secondItem="yeh-A6-GxS" secondAttribute="trailing" id="QiO-bd-lCY"/>
+                            <constraint firstItem="HGi-wT-0nR" firstAttribute="bottom" secondItem="yeh-A6-GxS" secondAttribute="top" id="VhB-r4-bg9"/>
+                            <constraint firstItem="HGi-wT-0nR" firstAttribute="leading" secondItem="cjZ-Ae-0IX" secondAttribute="leading" id="dFV-qG-yYQ"/>
+                            <constraint firstItem="cjZ-Ae-0IX" firstAttribute="trailing" secondItem="HGi-wT-0nR" secondAttribute="trailing" id="mWP-Vo-ojD"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerView" destination="yeh-A6-GxS" id="A0f-Qd-lFo"/>
+                        <outlet property="tableView" destination="HGi-wT-0nR" id="ynb-8I-dkd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJt-E0-1L2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

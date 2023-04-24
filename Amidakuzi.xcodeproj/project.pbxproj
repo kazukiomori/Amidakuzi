@@ -16,6 +16,7 @@
 		3BACA2A429F2E1CD00B66636 /* AmidakuziViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BACA2A329F2E1CD00B66636 /* AmidakuziViewController.swift */; };
 		3BF8437229F5866A00E31441 /* MemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF8437129F5866A00E31441 /* MemberViewController.swift */; };
 		3BF92AB029F6BEBC00B1782F /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF92AAF29F6BEBC00B1782F /* Color+Extension.swift */; };
+		3BF92AB329F6C7B000B1782F /* MemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF92AB229F6C7B000B1782F /* MemberTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		3BACA2A329F2E1CD00B66636 /* AmidakuziViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmidakuziViewController.swift; sourceTree = "<group>"; };
 		3BF8437129F5866A00E31441 /* MemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberViewController.swift; sourceTree = "<group>"; };
 		3BF92AAF29F6BEBC00B1782F /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		3BF92AB229F6C7B000B1782F /* MemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		3B83241729F186C6007F7DC2 /* Amidakuzi */ = {
 			isa = PBXGroup;
 			children = (
+				3BF92AB129F6C79A00B1782F /* View */,
 				3BF92AAE29F6BEA100B1782F /* Extension */,
 				3B83241829F186C6007F7DC2 /* AppDelegate.swift */,
 				3B83241A29F186C6007F7DC2 /* SceneDelegate.swift */,
@@ -90,6 +93,14 @@
 				3BF92AAF29F6BEBC00B1782F /* Color+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		3BF92AB129F6C79A00B1782F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BF92AB229F6C7B000B1782F /* MemberTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 				3B83241D29F186C6007F7DC2 /* TopViewController.swift in Sources */,
 				3BF92AB029F6BEBC00B1782F /* Color+Extension.swift in Sources */,
 				3B83241929F186C6007F7DC2 /* AppDelegate.swift in Sources */,
+				3BF92AB329F6C7B000B1782F /* MemberTableViewCell.swift in Sources */,
 				3BACA2A429F2E1CD00B66636 /* AmidakuziViewController.swift in Sources */,
 				3BF8437229F5866A00E31441 /* MemberViewController.swift in Sources */,
 				3B83241B29F186C6007F7DC2 /* SceneDelegate.swift in Sources */,
