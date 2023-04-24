@@ -114,13 +114,42 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="699"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="aKG-F6-myf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberTableViewCell" id="aKG-F6-myf" customClass="MemberTableViewCell" customModule="Amidakuzi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aKG-F6-myf" id="Pi8-Kn-kMw">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XP1-fU-kG8">
+                                                    <rect key="frame" x="15" y="5" width="50" height="50"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="bR3-tE-ARx"/>
+                                                        <constraint firstAttribute="height" constant="50" id="cjn-ku-64q"/>
+                                                    </constraints>
+                                                </view>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="enc-Dw-0IA">
+                                                    <rect key="frame" x="85" y="5" width="298" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="EWG-gg-a8M"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="enc-Dw-0IA" firstAttribute="leading" secondItem="XP1-fU-kG8" secondAttribute="trailing" constant="20" id="5Lw-L0-JsR"/>
+                                                <constraint firstItem="XP1-fU-kG8" firstAttribute="leading" secondItem="Pi8-Kn-kMw" secondAttribute="leading" constant="15" id="VFn-Ba-akc"/>
+                                                <constraint firstItem="enc-Dw-0IA" firstAttribute="top" secondItem="Pi8-Kn-kMw" secondAttribute="top" constant="5" id="evg-J8-7F1"/>
+                                                <constraint firstItem="XP1-fU-kG8" firstAttribute="top" secondItem="Pi8-Kn-kMw" secondAttribute="top" constant="5" id="kCg-vY-oux"/>
+                                                <constraint firstAttribute="trailing" secondItem="enc-Dw-0IA" secondAttribute="trailing" constant="10" id="qMH-MN-wcM"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="colorView" destination="XP1-fU-kG8" id="JAz-yR-VCv"/>
+                                            <outlet property="memberTextField" destination="enc-Dw-0IA" id="Iro-en-hGn"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

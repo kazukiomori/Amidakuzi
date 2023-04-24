@@ -9,8 +9,12 @@ import UIKit
 
 class MemberTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var colorView: UIView!
+    @IBOutlet weak var memberTextField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
+    
 }
