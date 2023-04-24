@@ -14,6 +14,7 @@ class MemberViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var bannerView: UIView!
     var startItems: [String] = []
     var goalItems: [String] = []
+    var colors:[UIColor] = [.red(), .blue(), .yellow(), .purple(), .green(), .pink(), .lightBlue(), .yellowGreen(), .orange(), .gray(), .black(), .white()]
     
     // MARK: LifeCycle
     override func viewDidLoad() {
@@ -44,7 +45,13 @@ class MemberViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberTableViewCell", for: indexPath) as? MemberTableViewCell else {return UITableViewCell()}
+        cell.colorView.layer.cornerRadius = cell.colorView.frame.height / 2
+        cell.colorView.backgroundColor = colors[indexPath.row]
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
     }
     
 }
