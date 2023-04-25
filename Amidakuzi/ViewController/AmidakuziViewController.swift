@@ -9,8 +9,9 @@ import UIKit
 
 class AmidakuziViewController: UIViewController {
     
-    var startItems: [String] = ["ごはん", "うどん"]
+    var startItems: [String] = []
     var goalItems: [String] = []
+    var colors:[UIColor] = [.red(), .blue(), .yellow(), .purple(), .green(), .pink(), .lightBlue(), .yellowGreen(), .orange(), .gray(), .black(), .white()]
     var linePoints: [CGPoint] = []
     // 縦線の開始位置
     var startX: Int = 50
