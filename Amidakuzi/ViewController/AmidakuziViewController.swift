@@ -34,17 +34,17 @@ class AmidakuziViewController: UIViewController {
             linePoints.append(point)
             startX += 100
         }
-        let lineView = LineView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height),
+        let lineView = LineView(frame: CGRect(x: 0,
+                                              y: 100,
+                                              width: view.frame.width * 3,
+                                              height: view.frame.height),
                                 linePoints: linePoints)
-        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 100, width: view.bounds.width, height: view.bounds.height))
-        scrollView.contentSize = lineView.frame.size // LineViewのframeサイズをcontentSizeに設定する
-        scrollView.addSubview(lineView)
-        
-        // UIScrollViewの横方向のスクロールを有効にする
+        let scrollView = UIScrollView(frame: CGRect(x: 0, y: 100, width: view.bounds.width * 3 + 1, height: view.bounds.height))
+        scrollView.contentSize = lineView.frame.size
         scrollView.isScrollEnabled = true
+        scrollView.isPagingEnabled = true
         scrollView.showsHorizontalScrollIndicator = true
-        scrollView.alwaysBounceHorizontal = true
-        scrollView.alwaysBounceVertical = false
+        scrollView.addSubview(lineView)
         view.addSubview(scrollView)
         // 直線の数だけUITextFieldを生成してLineViewの上に配置する
         for i in 0..<linePoints.count {
