@@ -201,12 +201,12 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="550"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-hd-76d">
-                                        <rect key="frame" x="0.0" y="0.0" width="786" height="550"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="1179" height="550"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="5aB-hd-76d" firstAttribute="width" secondItem="cjF-wQ-Xeq" secondAttribute="width" multiplier="2" id="Bcx-JU-jxM"/>
+                                    <constraint firstItem="5aB-hd-76d" firstAttribute="width" secondItem="cjF-wQ-Xeq" secondAttribute="width" multiplier="3" id="Bcx-JU-jxM"/>
                                     <constraint firstAttribute="trailing" secondItem="5aB-hd-76d" secondAttribute="trailing" id="UV0-WM-WDX"/>
                                     <constraint firstItem="5aB-hd-76d" firstAttribute="leading" secondItem="cjF-wQ-Xeq" secondAttribute="leading" id="c59-dg-LAC"/>
                                     <constraint firstAttribute="height" constant="550" id="iK1-Ng-qH0"/>
