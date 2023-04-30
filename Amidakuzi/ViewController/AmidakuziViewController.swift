@@ -12,8 +12,8 @@ class AmidakuziViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var startItems: [String] = []
     var goalItems: [String] = []
-    var colors:[UIColor] = [.red(), .blue(), .yellow(), .purple(), .green(), .pink(), .lightBlue(), .yellowGreen(), .orange(), .gray(), .black(), .white()]
     var linePoints: [CGPoint] = []
+    var circleViews = [UIView]()
     // 縦線の開始位置
     var startX: Int = 50
     
@@ -41,16 +41,63 @@ class AmidakuziViewController: UIViewController {
                                 linePoints: linePoints)
         
         self.scrollView.addSubview(lineView)
+        let circlesView = CirclesView(frame: CGRect(x: 0,
+                                                    y: 0,
+                                                    width: view.frame.width * 3,
+                                                    height: view.frame.height),
+                                      circleCount: goalItems.count)
+        circlesView.frame = view.bounds
+        self.scrollView.addSubview(circlesView)
         // 直線の数だけUITextFieldを生成してLineViewの上に配置する
-//        for i in 0..<linePoints.count {
-//            var startTFX = 30
-//            let textField = UITextField(frame: CGRect(x: startTFX, y: 100, width: 60, height: 20))
-//            textField.placeholder = "Enter text"
-//            textField.borderStyle = .roundedRect
-//            view.addSubview(textField)
-//            startTFX += 100
-//        }
+        //        for i in 0..<linePoints.count {
+        //            var startTFX = 30
+        //            let textField = UITextField(frame: CGRect(x: startTFX, y: 100, width: 60, height: 20))
+        //            textField.placeholder = "Enter text"
+        //            textField.borderStyle = .roundedRect
+        //            view.addSubview(textField)
+        //            startTFX += 100
+        //        }
         
+    }
+    
+}
+
+class CirclesView: UIView {
+    
+    let circleCount: Int
+    var colors:[UIColor] = [.red(), .blue(), .yellow(), .purple(), .green(), .pink(), .lightBlue(), .yellowGreen(), .orange(), .gray(), .black(), .white()]
+    let circleSpacing: CGFloat = 50
+    let circleSize = CGSize(width: 50, height: 50)
+    var x = 25
+    
+    init(frame: CGRect, circleCount: Int) {
+        self.circleCount = circleCount
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.circleCount = 1
+        super.init(coder: aDecoder)
+        setupViews()
+    }
+    
+    private func setupViews() {
+        for i in 0..<circleCount {
+            let circleView = UIView()
+            circleView.backgroundColor = colors[i]
+            circleView.frame = CGRect(x: x, y: 0, width: 50, height: 50)
+            circleView.layer.cornerRadius = 25
+            circleView.translatesAutoresizingMaskIntoConstraints = false
+            addSubview(circleView)
+//            NSLayoutConstraint.activate([
+//                circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
+//                circleView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: CGFloat(i - 1) * circleSpacing),
+//                circleView.widthAnchor.constraint(equalToConstant: circleSize.width),
+//                circleView.heightAnchor.constraint(equalToConstant: circleSize.height)
+//                        ])
+            x += 70
+        }
     }
     
 }
