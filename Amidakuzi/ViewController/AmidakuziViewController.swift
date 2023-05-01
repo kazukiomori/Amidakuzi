@@ -38,7 +38,8 @@ class AmidakuziViewController: UIViewController {
                                               y: 0,
                                               width: view.frame.width * 3,
                                               height: view.frame.height),
-                                linePoints: linePoints)
+                                linePoints: linePoints,
+                                lineCount: goalItems.count)
         
         self.scrollView.addSubview(lineView)
         let circlesView = CirclesView(frame: CGRect(x: 0,
@@ -48,16 +49,6 @@ class AmidakuziViewController: UIViewController {
                                       circleCount: goalItems.count)
         circlesView.frame = view.bounds
         self.scrollView.addSubview(circlesView)
-        // 直線の数だけUITextFieldを生成してLineViewの上に配置する
-        //        for i in 0..<linePoints.count {
-        //            var startTFX = 30
-        //            let textField = UITextField(frame: CGRect(x: startTFX, y: 100, width: 60, height: 20))
-        //            textField.placeholder = "Enter text"
-        //            textField.borderStyle = .roundedRect
-        //            view.addSubview(textField)
-        //            startTFX += 100
-        //        }
-        
     }
     
 }
@@ -90,12 +81,6 @@ class CirclesView: UIView {
             circleView.layer.cornerRadius = 25
             circleView.translatesAutoresizingMaskIntoConstraints = false
             addSubview(circleView)
-//            NSLayoutConstraint.activate([
-//                circleView.centerXAnchor.constraint(equalTo: centerXAnchor),
-//                circleView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: CGFloat(i - 1) * circleSpacing),
-//                circleView.widthAnchor.constraint(equalToConstant: circleSize.width),
-//                circleView.heightAnchor.constraint(equalToConstant: circleSize.height)
-//                        ])
             x += 70
         }
     }
@@ -104,9 +89,11 @@ class CirclesView: UIView {
 
 class LineView: UIView {
     let linePoints: [CGPoint]
+    let lineCount: Int
     
-    init(frame: CGRect, linePoints: [CGPoint]) {
+    init(frame: CGRect, linePoints: [CGPoint], lineCount: Int) {
         self.linePoints = linePoints
+        self.lineCount = lineCount
         super.init(frame: frame)
     }
     
@@ -125,12 +112,40 @@ class LineView: UIView {
         
         // 線を描画する
         for point in linePoints {
+            //　最初の線のxは50で、線の幅は70
             context.move(to: CGPoint(x: point.x, y: 50))
             context.addLine(to: CGPoint(x: point.x, y: 400))
             context.strokePath()
         }
+        var maxNumOfLines = 0
+        let interval: CGFloat = 70
+        
+        if lineCount <= 3 {
+            maxNumOfLines = 8
+        } else if lineCount <= 6 {
+            maxNumOfLines = 11
+        } else if lineCount <= 9 {
+            maxNumOfLines = 14
+        } else {
+            maxNumOfLines = 17
+        }
+        
+        while maxNumOfLines > 0 {
+            let x1 = interval * CGFloat(Int.random(in: 1...maxNumOfLines))
+            let x2 = interval * CGFloat(Int.random(in: 1...maxNumOfLines))
+//            if abs(x1 - x2) < interval {
+//                continue
+//            }
+            let y = rect.height / CGFloat(maxNumOfLines + 1)
+            context.move(to: CGPoint(x: min(x1, x2), y: y * CGFloat(maxNumOfLines)))
+            context.addLine(to: CGPoint(x: max(x1, x2), y: y * CGFloat(maxNumOfLines)))
+            context.strokePath()
+            maxNumOfLines -= 1
+        }
+        
     }
 }
+
 
 
 
