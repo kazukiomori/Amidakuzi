@@ -131,14 +131,10 @@ class LineView: UIView {
         }
         
         while maxNumOfLines > 0 {
-            let x1 = interval * CGFloat(Int.random(in: 1...maxNumOfLines))
-            let x2 = interval * CGFloat(Int.random(in: 1...maxNumOfLines))
-//            if abs(x1 - x2) < interval {
-//                continue
-//            }
-            let y = rect.height / CGFloat(maxNumOfLines + 1)
-            context.move(to: CGPoint(x: min(x1, x2), y: y * CGFloat(maxNumOfLines)))
-            context.addLine(to: CGPoint(x: max(x1, x2), y: y * CGFloat(maxNumOfLines)))
+            let x = interval * CGFloat(Int.random(in: 0..<lineCount)) + 50
+            let y = CGFloat(Int.random(in: 60..<390))
+            context.move(to: CGPoint(x: x, y: y))
+            context.addLine(to: CGPoint(x: x + interval, y: y))
             context.strokePath()
             maxNumOfLines -= 1
         }
