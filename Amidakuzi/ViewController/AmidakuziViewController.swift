@@ -34,47 +34,42 @@ class AmidakuziViewController: UIViewController {
             linePoints.append(point)
             startX += 70
         }
-        let lineView = LineView(frame: CGRect(x: 0,
+        let amidaView = AmidaView(frame: CGRect(x: 0,
                                               y: 0,
                                               width: view.frame.width * 3,
                                               height: view.frame.height),
                                 linePoints: linePoints,
                                 lineCount: goalItems.count)
-        
-        self.scrollView.addSubview(lineView)
-        let circlesView = CirclesView(frame: CGRect(x: 0,
-                                                    y: 0,
-                                                    width: view.frame.width * 3,
-                                                    height: view.frame.height),
-                                      circleCount: goalItems.count)
-        circlesView.frame = view.bounds
-        self.scrollView.addSubview(circlesView)
+        amidaView.frame = view.bounds
+        self.scrollView.addSubview(amidaView)
     }
     
 }
 
-class CirclesView: UIView {
-    
-    let circleCount: Int
+class AmidaView: UIView {
+    let linePoints: [CGPoint]
+    let lineCount: Int
     var colors:[UIColor] = [.red(), .blue(), .yellow(), .purple(), .green(), .pink(), .lightBlue(), .yellowGreen(), .orange(), .gray(), .black(), .white()]
     let circleSpacing: CGFloat = 50
     let circleSize = CGSize(width: 50, height: 50)
     var x = 25
     
-    init(frame: CGRect, circleCount: Int) {
-        self.circleCount = circleCount
+    init(frame: CGRect, linePoints: [CGPoint], lineCount: Int) {
+        self.linePoints = linePoints
+        self.lineCount = lineCount
         super.init(frame: frame)
         setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        self.circleCount = 1
+        self.linePoints = [CGPoint(x: 0, y: 0)]
+        self.lineCount = 1
         super.init(coder: aDecoder)
         setupViews()
     }
     
     private func setupViews() {
-        for i in 0..<circleCount {
+        for i in 0..<lineCount {
             let circleView = UIView()
             circleView.backgroundColor = colors[i]
             circleView.frame = CGRect(x: x, y: 0, width: 50, height: 50)
@@ -85,21 +80,6 @@ class CirclesView: UIView {
         }
     }
     
-}
-
-class LineView: UIView {
-    let linePoints: [CGPoint]
-    let lineCount: Int
-    
-    init(frame: CGRect, linePoints: [CGPoint], lineCount: Int) {
-        self.linePoints = linePoints
-        self.lineCount = lineCount
-        super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     override func draw(_ rect: CGRect) {
         UIColor.white.setFill()
         UIRectFill(rect)
@@ -131,7 +111,7 @@ class LineView: UIView {
         }
         
         while maxNumOfLines > 0 {
-            let x = interval * CGFloat(Int.random(in: 0..<lineCount)) + 50
+            let x = interval * CGFloat(Int.random(in: 0..<lineCount-1)) + 50
             let y = CGFloat(Int.random(in: 60..<390))
             context.move(to: CGPoint(x: x, y: y))
             context.addLine(to: CGPoint(x: x + interval, y: y))
