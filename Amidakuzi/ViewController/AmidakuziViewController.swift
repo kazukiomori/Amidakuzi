@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AmidakuziViewController: UIViewController {
+class AmidakuziViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     var startItems: [String] = []
@@ -21,9 +21,6 @@ class AmidakuziViewController: UIViewController {
     let lineWidth: CGFloat = 5
     let lineColor: UIColor = .black
     
-    // 乱数生成器
-    var random: RandomNumberGenerator = SystemRandomNumberGenerator()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,15 +32,18 @@ class AmidakuziViewController: UIViewController {
             startX += 70
         }
         let amidaView = AmidaView(frame: CGRect(x: 0,
-                                              y: 0,
-                                              width: view.frame.width * 3,
-                                              height: view.frame.height),
-                                linePoints: linePoints,
-                                lineCount: goalItems.count)
+                                                y: 0,
+                                                width: view.frame.width * 3,
+                                                height: view.frame.height),
+                                  linePoints: linePoints,
+                                  lineCount: goalItems.count)
         amidaView.frame = view.bounds
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(amidaView.moveCircleView(_:)))
+        amidaView.addGestureRecognizer(tapGesture)
+        tapGesture.delegate = self
         self.scrollView.addSubview(amidaView)
+        
     }
-    
 }
 
 class AmidaView: UIView {
@@ -118,6 +118,9 @@ class AmidaView: UIView {
             context.strokePath()
             maxNumOfLines -= 1
         }
+    }
+    
+    @objc func moveCircleView(_ sender : UITapGestureRecognizer) {
         
     }
 }
