@@ -53,6 +53,7 @@ class AmidaView: UIView {
     let circleSpacing: CGFloat = 50
     let circleSize = CGSize(width: 50, height: 50)
     var x = 25
+    var circleViews: [UIView] = []
     
     init(frame: CGRect, linePoints: [CGPoint], lineCount: Int) {
         self.linePoints = linePoints
@@ -75,6 +76,7 @@ class AmidaView: UIView {
             circleView.frame = CGRect(x: x, y: 0, width: 50, height: 50)
             circleView.layer.cornerRadius = 25
             circleView.translatesAutoresizingMaskIntoConstraints = false
+            circleViews.append(circleView)
             addSubview(circleView)
             x += 70
         }
