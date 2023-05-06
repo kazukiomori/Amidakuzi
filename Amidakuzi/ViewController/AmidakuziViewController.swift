@@ -38,7 +38,7 @@ class AmidakuziViewController: UIViewController, UIGestureRecognizerDelegate {
                                   linePoints: linePoints,
                                   lineCount: goalItems.count)
         amidaView.frame = view.bounds
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(amidaView.moveCircleView(_:)))
+        let tapGesture = UITapGestureRecognizer(target: amidaView, action: #selector(amidaView.moveCircleView(_:)))
         amidaView.addGestureRecognizer(tapGesture)
         tapGesture.delegate = self
         self.scrollView.addSubview(amidaView)
@@ -122,8 +122,44 @@ class AmidaView: UIView {
         }
     }
     
-    @objc func moveCircleView(_ sender : UITapGestureRecognizer) {
+    @objc func moveCircleView(_ sender: UITapGestureRecognizer) {
+
+        // 描画コンテキストを取得する
+        guard let context = UIGraphicsGetCurrentContext() else { return }
         
+        // 線の属性を設定する
+        context.setLineWidth(4.0)
+        var pointCount = 0
+        // 線を描画する
+        for point in linePoints {
+            //　最初の線のxは50で、線の幅は70
+            context.move(to: CGPoint(x: point.x, y: 50))
+            context.addLine(to: CGPoint(x: point.x, y: 400))
+            context.setStrokeColor(colors[pointCount].cgColor)
+            context.strokePath()
+            pointCount += 1
+        }
+//        var maxNumOfLines = 0
+//        let interval: CGFloat = 70
+//
+//        if lineCount <= 3 {
+//            maxNumOfLines = 8
+//        } else if lineCount <= 6 {
+//            maxNumOfLines = 11
+//        } else if lineCount <= 9 {
+//            maxNumOfLines = 14
+//        } else {
+//            maxNumOfLines = 17
+//        }
+//
+//        while maxNumOfLines > 0 {
+//            let x = interval * CGFloat(Int.random(in: 0..<lineCount-1)) + 50
+//            let y = CGFloat(Int.random(in: 60..<390))
+//            context.move(to: CGPoint(x: x, y: y))
+//            context.addLine(to: CGPoint(x: x + interval, y: y))
+//            context.strokePath()
+//            maxNumOfLines -= 1
+//        }
     }
 }
 

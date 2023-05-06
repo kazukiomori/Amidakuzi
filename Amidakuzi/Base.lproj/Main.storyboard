@@ -200,7 +200,7 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cjF-wQ-Xeq">
                                 <rect key="frame" x="0.0" y="59" width="393" height="550"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-hd-76d">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-hd-76d" customClass="AmidaView" customModule="Amidakuzi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="1179" height="550"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
